@@ -1,0 +1,23 @@
+---
+import DealerMap from './DealerMap.tsx';
+---
+<section class="relative py-24 lg:py-32 bg-schmidt-carbon">
+  <div class="container-x">
+    <div class="flex flex-col lg:flex-row items-end justify-between gap-8 mb-10">
+      <div>
+        <div class="eyebrow mb-5 flex items-center gap-3">
+          <span class="h-px w-8 bg-schmidt-yellow"></span>
+          04 - Händler-Netzwerk
+        </div>
+        <h2 class="h-display text-[40px] sm:text-[56px] leading-[0.95] text-white max-w-xl">
+          120+ Partner. <span class="italic font-light text-schmidt-yellow">Eine</span> Karte.
+        </h2>
+      </div>
+      <a href="/haendler" class="btn-ghost text-sm">
+        Vollbild öffnen
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <DealerMap client:visible compact />
+  </div>
+</section>

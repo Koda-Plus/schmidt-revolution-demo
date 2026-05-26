@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ProductDetail from '@/components/ProductDetail.tsx';
+import { wheels } from '@/data/wheels';
+
+export function getStaticPaths() {
+  return wheels.map(w => ({ params: { slug: w.slug }, props: { wheel: w } }));
+}
+
+const { wheel } = Astro.props as { wheel: typeof wheels[number] };
+---
+<Layout title={`${wheel.name} - Schmidt Revolution`}>
+  <ProductDetail client:load wheel={wheel} />
+</Layout>

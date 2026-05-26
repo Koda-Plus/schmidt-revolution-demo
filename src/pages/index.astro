@@ -1,0 +1,19 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.tsx';
+import CategoryShowcase from '@/components/CategoryShowcase.tsx';
+import SubBrands from '@/components/SubBrands.tsx';
+import FeaturedWheels from '@/components/FeaturedWheels.tsx';
+import Manufaktur from '@/components/Manufaktur.tsx';
+import MapPreview from '@/components/MapPreview.astro';
+import CTA from '@/components/CTA.tsx';
+---
+<Layout>
+  <Hero client:load />
+  <CategoryShowcase client:visible />
+  <SubBrands client:visible />
+  <FeaturedWheels client:visible />
+  <Manufaktur client:visible />
+  <MapPreview />
+  <CTA client:visible />
+</Layout>

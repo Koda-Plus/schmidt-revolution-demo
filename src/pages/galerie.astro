@@ -1,0 +1,67 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { galleryItems } from '@/data/gallery';
+
+const featured = galleryItems[0];
+const rest = galleryItems.slice(1);
+---
+<Layout title="Galerie - Kundenfahrzeuge mit Schmidt Felgen">
+  <section class="pt-16 container-x mb-16">
+    <div class="eyebrow mb-5 flex items-center gap-3">
+      <span class="h-px w-8 bg-schmidt-yellow"></span>
+      Kundenfahrzeuge - Saison 2026
+    </div>
+    <h1 class="h-display text-[56px] lg:text-[96px] leading-[0.92] text-white max-w-5xl">
+      Schmidt <span class="italic font-light text-schmidt-yellow">in the wild.</span>
+    </h1>
+    <p class="text-base lg:text-lg text-schmidt-silver max-w-2xl mt-6 leading-relaxed">
+      Reale Umbauten von Schmidt-Haendlern und Tunern. Von der M3 E36 Werks-Restomod bis zum 24-Zoll Defender - so sehen unsere Felgen aus, wenn sie das Werk verlassen.
+    </p>
+  </section>
+
+  {/* Featured big card */}
+  <section class="container-x mb-16">
+    <a href={`/galerie/${featured.slug}`} class="group block relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/[0.06]">
+      <img src={featured.image} alt={featured.title} class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+      <div class="absolute inset-0 bg-gradient-to-t from-schmidt-ink via-schmidt-ink/40 to-transparent"></div>
+      <div class="absolute inset-0 p-8 lg:p-14 flex flex-col justify-end">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="bg-schmidt-yellow text-schmidt-ink text-[10px] font-medium uppercase tracking-wide px-2.5 py-1 rounded-full">Featured</span>
+          <span class="text-[10px] uppercase tracking-[0.22em] text-schmidt-silver">{featured.date}</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl text-white max-w-3xl mb-3 leading-[0.95]">{featured.title}</h2>
+        <div class="flex flex-wrap items-center gap-4 text-sm text-schmidt-silver">
+          <span class="text-schmidt-yellow">{featured.wheel}</span>
+          <span>·</span>
+          <span>{featured.wheelSize}</span>
+          <span>·</span>
+          <span>by {featured.dealer}</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  {/* Grid */}
+  <section class="container-x pb-32">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+      {rest.map((g) => (
+        <a href={`/galerie/${g.slug}`} class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/[0.06] bg-schmidt-carbon">
+          <img src={g.image} alt={g.title} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-schmidt-ink/95 via-schmidt-ink/20 to-transparent"></div>
+          <div class="absolute inset-0 p-5 flex flex-col justify-between">
+            <div class="text-[10px] uppercase tracking-[0.22em] text-schmidt-silver">{g.date}</div>
+            <div>
+              <div class="font-display text-lg lg:text-xl text-white leading-tight mb-2">{g.vehicle}</div>
+              <div class="flex items-center gap-2 text-xs">
+                <span class="text-schmidt-yellow">{g.wheel}</span>
+                <span class="text-schmidt-silver">·</span>
+                <span class="text-schmidt-silver">{g.wheelSize}</span>
+              </div>
+              <div class="text-[10px] text-schmidt-silver/80 mt-1.5">by {g.dealer}</div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>

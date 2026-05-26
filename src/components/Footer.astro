@@ -1,0 +1,57 @@
+---
+const cols = [
+  {
+    title: 'Felgen',
+    links: ['1-teilig', '2-/3-teilig', 'Forged', 'Klassik', 'Camper & Offroad', 'Winterfelgen'],
+  },
+  {
+    title: 'Service',
+    links: ['Felgenkonfigurator', 'Abrollumfangrechner', 'TPMS / RDKS', 'Einpresstiefe', 'Tuner-Systeme', 'Fertigung'],
+  },
+  {
+    title: 'Marke',
+    links: ['Über uns', 'Manufaktur Bad Segeberg', 'Referenzen', 'Press', 'Blog', 'Karriere'],
+  },
+  {
+    title: 'Kontakt',
+    links: ['Händler finden', 'B2B Anfrage', 'Support', 'Garantie', 'Impressum', 'Datenschutz'],
+  },
+];
+---
+<footer class="mt-32 border-t border-white/[0.06] bg-schmidt-carbon">
+  <div class="container-x py-20">
+    <div class="grid lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] gap-12">
+      <div>
+        <div class="mb-6">
+          <img src="/scraped/logo.svg" alt="Schmidt Felgen" class="h-10 w-auto" />
+        </div>
+        <p class="text-sm text-schmidt-silver max-w-xs leading-relaxed">
+          Premium Alufelgen, gefertigt in Bad Segeberg. Seit 1995 für anspruchsvolle Fahrzeuge - vom Daily Driver bis zum Boliden.
+        </p>
+        <div class="mt-6 flex items-center gap-2">
+          <span class="chip">CARB Approved</span>
+          <span class="chip">TÜV Süd</span>
+          <span class="chip">Made in DE</span>
+        </div>
+      </div>
+      {cols.map((c) => (
+        <div>
+          <div class="eyebrow mb-4">{c.title}</div>
+          <ul class="space-y-2.5">
+            {c.links.map((l) => (
+              <li><a class="text-sm text-white/70 hover:text-schmidt-yellow transition-colors" href="#">{l}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="hairline mt-16 pt-6 flex flex-col md:flex-row gap-4 md:items-center justify-between text-xs text-schmidt-silver">
+      <div>© 2026 Volker Schmidt GmbH &amp; Co. KG · Efeustraße 19, 23795 Bad Segeberg</div>
+      <div class="flex items-center gap-3">
+        <span>Konfiguriere dein Auto in 3 Klicks.</span>
+        <a href="/konfigurator" class="text-schmidt-yellow hover:underline">Jetzt starten →</a>
+      </div>
+    </div>
+  </div>
+</footer>

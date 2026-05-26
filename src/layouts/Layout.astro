@@ -1,0 +1,59 @@
+---
+import '@/styles/global.css';
+import Nav from '@/components/Nav.astro';
+import Footer from '@/components/Footer.astro';
+import KodaBadge from '@/components/KodaBadge.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Schmidt Revolution - Premium Alufelgen Made in Germany',
+  description = 'Schmidt Revolution - 1-teilige, 2-/3-teilige und geschmiedete Alufelgen. Auftragsbezogen gefertigt in Bad Segeberg. Ueber 10.000 Fahrzeug-Anwendungen mit TUEV-Gutachten.',
+} = Astro.props;
+const ogImage = '/scraped/wheel-kyan.webp';
+---
+<!doctype html>
+<html lang="de" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0A0A0B" />
+    <meta name="author" content="Volker Schmidt GmbH & Co. KG" />
+    <meta name="keywords" content="Alufelgen, Felgen, Schmidt Revolution, Made in Germany, Felgenkonfigurator, 1-teilig, 2-teilig, 3-teilig, Forged, Bad Segeberg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Schmidt Revolution" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/scraped/logo.svg" />
+    <link rel="alternate icon" href="/scraped/logo.svg" />
+    <link rel="apple-touch-icon" href="/scraped/logo.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-schmidt-ink text-schmidt-paper antialiased">
+    <Nav />
+    <main><slot /></main>
+    <Footer />
+    <KodaBadge />
+    <script>
+      const c = Number(localStorage.getItem('schmidt_cart_count') ?? 0);
+      const el = document.getElementById('cart-count');
+      if (el) el.textContent = String(c);
+    </script>
+  </body>
+</html>
