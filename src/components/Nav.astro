@@ -1,13 +1,17 @@
 ---
 const items = [
-  { href: '/felgen', label: 'Felgen' },
-  { href: '/konfigurator', label: 'Konfigurator' },
-  { href: '/galerie', label: 'Galerie' },
-  { href: '/shop', label: 'Shop' },
-  { href: '/haendler', label: 'Händler' },
-  { href: '/manufaktur', label: 'Manufaktur' },
+  { key: 'felgen', href: '/shop?category=felgen', label: 'Felgen' },
+  { key: 'konfigurator', href: '/konfigurator', label: 'Konfigurator' },
+  { key: 'galerie', href: '/galerie', label: 'Galerie' },
+  { key: 'shop', href: '/shop', label: 'Shop' },
+  { key: 'haendler', href: '/haendler', label: 'Händler' },
+  { key: 'manufaktur', href: '/manufaktur', label: 'Manufaktur' },
 ];
 const path = Astro.url.pathname;
+const isActiveSSR = (item: { key: string; href: string }) => {
+  if (item.key === 'felgen' || item.key === 'shop') return false; // resolved client-side
+  return path.startsWith(item.href);
+};
 ---
 <header class="fixed inset-x-0 top-0 z-50 backdrop-blur-xl bg-schmidt-ink/70 border-b border-white/[0.06]">
   <div class="container-x flex items-center justify-between h-16 lg:h-[72px]">
@@ -15,14 +19,15 @@ const path = Astro.url.pathname;
       <img src="/scraped/logo.svg" alt="Schmidt Felgen" class="h-9 lg:h-10 w-auto" />
     </a>
 
-    <nav class="hidden lg:flex items-center gap-1">
+    <nav class="hidden lg:flex items-center gap-1" data-nav>
       {items.map((item) => (
         <a
           href={item.href}
+          data-nav-key={item.key}
           class:list={[
-            'px-3.5 py-2 text-sm rounded-full transition-colors',
-            path.startsWith(item.href)
-              ? 'text-schmidt-yellow bg-white/5'
+            'nav-link px-3.5 py-2 text-sm rounded-full transition-colors',
+            isActiveSSR(item)
+              ? 'text-schmidt-yellow bg-white/5 is-active'
               : 'text-white/80 hover:text-white hover:bg-white/5'
           ]}
         >{item.label}</a>
@@ -48,3 +53,27 @@ const path = Astro.url.pathname;
   </div>
 </header>
 <div class="h-16 lg:h-[72px]"></div>
+
+<script>
+  // Client-side resolution for Shop vs Felgen active state (depends on ?category param)
+  function updateNavActive() {
+    const path = window.location.pathname;
+    const cat = new URLSearchParams(window.location.search).get('category');
+    const links = document.querySelectorAll<HTMLAnchorElement>('[data-nav-key]');
+    links.forEach((a) => {
+      const key = a.dataset.navKey;
+      let active = a.classList.contains('is-active');
+      if (key === 'felgen') active = path === '/shop' && cat === 'felgen';
+      if (key === 'shop') active = path === '/shop' && cat !== 'felgen';
+      if (active) {
+        a.classList.add('text-schmidt-yellow', 'bg-white/5');
+        a.classList.remove('text-white/80');
+      } else if (key === 'felgen' || key === 'shop') {
+        a.classList.remove('text-schmidt-yellow', 'bg-white/5');
+        a.classList.add('text-white/80');
+      }
+    });
+  }
+  updateNavActive();
+  window.addEventListener('popstate', updateNavActive);
+</script>

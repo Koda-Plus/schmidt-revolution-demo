@@ -27,7 +27,7 @@ export default function CategoryShowcase() {
           {categories.map((c, i) => (
             <motion.a
               key={c.slug}
-              href={`/felgen?bauart=${c.slug}`}
+              href={`/shop?category=felgen`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}

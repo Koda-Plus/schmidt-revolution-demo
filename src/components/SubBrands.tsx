@@ -64,7 +64,7 @@ export default function SubBrands() {
                   {b.name.replace('Schmidt ', '')}
                 </div>
                 <p className="text-xs text-schmidt-silver leading-relaxed mb-4 line-clamp-3">{b.description}</p>
-                <a href="/felgen" className="inline-flex items-center gap-1.5 text-[11px] text-white hover:text-schmidt-yellow transition-colors">
+                <a href="/shop?category=felgen" className="inline-flex items-center gap-1.5 text-[11px] text-white hover:text-schmidt-yellow transition-colors">
                   Linie entdecken
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                 </a>

@@ -23,7 +23,7 @@ export default function ProductDetail({ wheel }: { wheel: Wheel }) {
       {/* Breadcrumb */}
       <div className="text-xs text-schmidt-silver mb-6 flex items-center gap-2">
         <a href="/" className="hover:text-white">Start</a> /
-        <a href="/felgen" className="hover:text-white">Felgen</a> /
+        <a href="/shop?category=felgen" className="hover:text-white">Felgen</a> /
         <span className="text-white">{wheel.name}</span>
       </div>
 

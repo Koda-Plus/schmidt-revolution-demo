@@ -82,7 +82,7 @@ export default function Hero() {
                 Konfigurator starten
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </a>
-              <a href="/felgen" className="btn-ghost text-sm">Alle Felgen entdecken</a>
+              <a href="/shop?category=felgen" className="btn-ghost text-sm">Alle Felgen entdecken</a>
             </motion.div>
 
             <motion.div
