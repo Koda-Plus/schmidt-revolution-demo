@@ -29,16 +29,11 @@ export default function ProductDetail({ wheel }: { wheel: Wheel }) {
 
       <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-start lg:items-center lg:min-h-[calc(100vh-160px)]">
         {/* Image */}
-        <div className="relative aspect-square lg:max-h-[calc(100vh-160px)] bg-schmidt-carbon rounded-3xl overflow-hidden border border-white/[0.06]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,212,0,0.10),transparent_70%)]" />
+        <div className="studio-plate relative aspect-square lg:max-h-[calc(100vh-160px)] rounded-3xl overflow-hidden border border-white/[0.06]">
           <img
             src={wheel.image}
             alt={wheel.alt}
-            className="absolute inset-0 w-full h-full object-contain p-12 wheel-mask"
-          />
-          <div
-            className="absolute inset-[14%] rounded-full mix-blend-color pointer-events-none"
-            style={{ background: finish.hex, opacity: 0.35 }}
+            className="studio-img absolute inset-0 w-full h-full object-contain p-12"
           />
 
           {wheel.tag && (
@@ -46,11 +41,13 @@ export default function ProductDetail({ wheel }: { wheel: Wheel }) {
               {wheel.tag}
             </div>
           )}
-          <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[10px] uppercase tracking-widest text-schmidt-silver">
-            <span>Premium Detail View</span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-schmidt-yellow animate-pulse" />
-              Live Finish
+          <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-3">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-medium bg-schmidt-ink/90 text-schmidt-silver backdrop-blur">
+              Premium Detail View
+            </span>
+            <span className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-[10px] font-medium bg-schmidt-ink/90 text-white backdrop-blur">
+              <span className="w-3 h-3 rounded-full border border-white/20" style={{ background: finish.swatch }} />
+              {finish.name}
             </span>
           </div>
         </div>

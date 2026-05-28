@@ -101,10 +101,6 @@ export default function Configurator() {
           {/* Ground shadow */}
           <div className="absolute bottom-[-6%] left-1/2 -translate-x-1/2 w-[80%] h-12 rounded-[50%]" style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 70%)' }} />
 
-          {/* Outer ring guides */}
-          <div className="absolute inset-0 rounded-full border border-white/[0.06]" />
-          <div className="absolute inset-3 rounded-full border border-white/[0.04]" />
-
           {/* Wheel */}
           <AnimatePresence mode="wait">
             {selectedWheel ? (
@@ -116,22 +112,20 @@ export default function Configurator() {
                 transition={{ duration: 0.6 }}
                 className="absolute inset-0"
               >
-                <img
-                  src={selectedWheel.image}
-                  alt={selectedWheel.alt}
-                  className="absolute inset-0 w-full h-full object-contain wheel-mask"
-                />
-                {/* Tint overlay matching finish */}
-                {selectedFinish && (
-                  <div
-                    className="absolute inset-0 mix-blend-color pointer-events-none rounded-full"
-                    style={{ background: selectedFinish.hex, opacity: 0.4 }}
+                <div
+                  className="studio-plate absolute inset-0 rounded-full overflow-hidden border border-white/10"
+                  style={{ boxShadow: `0 0 90px -30px ${accent}` }}
+                >
+                  <img
+                    src={selectedWheel.image}
+                    alt={selectedWheel.alt}
+                    className="studio-img absolute inset-0 w-full h-full object-contain p-6"
                   />
-                )}
+                </div>
                 {/* Accent ring */}
                 <div
-                  className="absolute inset-[12%] rounded-full pointer-events-none"
-                  style={{ boxShadow: `0 0 60px -20px ${accent}, inset 0 0 0 1px ${accent}33` }}
+                  className="absolute inset-0 rounded-full pointer-events-none"
+                  style={{ boxShadow: `inset 0 0 0 1px ${accent}55` }}
                 />
               </motion.div>
             ) : (
@@ -302,11 +296,11 @@ export default function Configurator() {
                         wheel === w.slug ? 'border-schmidt-yellow bg-schmidt-yellow/[0.04]' : 'border-white/10 hover:border-white/30'
                       }`}
                     >
-                      <div className="aspect-square mb-3 rounded-lg overflow-hidden bg-schmidt-ink relative">
+                      <div className="studio-plate aspect-square mb-3 rounded-lg overflow-hidden relative">
                         <img
                           src={w.image}
                           alt={w.alt}
-                          className="absolute inset-0 w-full h-full object-contain p-3 wheel-mask-tight"
+                          className="studio-img absolute inset-0 w-full h-full object-contain p-3"
                         />
                       </div>
                       <div className="text-sm text-white">{w.name}</div>

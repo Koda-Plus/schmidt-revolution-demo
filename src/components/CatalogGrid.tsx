@@ -104,10 +104,8 @@ export default function CatalogGrid() {
                   {w.tag && (
                     <span className="absolute top-3 left-3 z-10 bg-schmidt-yellow text-schmidt-ink text-[10px] font-medium tracking-wide uppercase px-2 py-1 rounded-full">{w.tag}</span>
                   )}
-                  <div className="aspect-square relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,212,0,0.08),transparent_70%)]" />
-                    <img src={w.image} alt={w.alt} className="absolute inset-0 w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105 wheel-mask-tight" />
-                    <div className="absolute inset-0 pointer-events-none" style={{ boxShadow: 'inset 0 0 80px 18px #161618' }} />
+                  <div className="studio-plate aspect-square relative overflow-hidden">
+                    <img src={w.image} alt={w.alt} className="studio-img absolute inset-0 w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="p-5 border-t border-white/[0.06]">
                     <div className="flex items-center justify-between mb-1">

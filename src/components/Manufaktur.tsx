@@ -32,23 +32,24 @@ export default function Manufaktur() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="relative aspect-square w-full max-w-[560px] mx-auto"
+            transition={{ duration: 0.9 }}
+            className="relative w-full max-w-[560px] mx-auto"
           >
-            <div className="absolute inset-[-6%] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,212,0,0.10),transparent_60%)]" />
-            <div className="absolute inset-0 rounded-full border border-schmidt-yellow/15" />
-            <div className="absolute inset-6 rounded-full border border-white/[0.05]" />
-            <img
-              src="/scraped/wheel-twentyone.jpg"
-              alt="Schmidt Manufaktur - handgefertigte Felge"
-              className="absolute inset-0 w-full h-full object-contain p-8 wheel-mask"
-            />
-            <div className="absolute inset-0 pointer-events-none rounded-full" style={{ boxShadow: 'inset 0 0 100px 30px #0A0A0B' }} />
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 chip bg-schmidt-ink/85 backdrop-blur">
-              <span className="w-1.5 h-1.5 rounded-full bg-schmidt-yellow animate-pulse" /> Live · CNC #4
+            <div className="studio-plate-warm relative aspect-square rounded-3xl overflow-hidden border border-white/[0.07]">
+              <img
+                src="/scraped/wheel-eckstein.jpg"
+                alt="Schmidt Manufaktur - handgefertigte Felge"
+                className="studio-img absolute inset-0 w-full h-full object-contain p-12 lg:p-16"
+              />
+              <div className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-schmidt-ink/90 text-white backdrop-blur">
+                <span className="w-1.5 h-1.5 rounded-full bg-schmidt-yellow animate-pulse" /> Live · CNC #4
+              </div>
+              <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-medium bg-schmidt-ink/90 text-schmidt-silver backdrop-blur">
+                Bad Segeberg
+              </div>
             </div>
           </motion.div>
         </div>

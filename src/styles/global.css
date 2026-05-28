@@ -94,6 +94,24 @@
 }
 .maplibregl-ctrl-attrib a { color: rgba(255,255,255,0.6) !important; }
 
+/* Studio plate — light surface that embraces the white product backgrounds.
+   The wheel photos are shot on pure white with a soft drop shadow, so we place
+   them on a light plate and use mix-blend-mode:multiply. White bg multiplies to
+   the plate colour (invisible), the soft shadow grounds the wheel, the dark wheel
+   stays dark. No masks, no halos, no cut-off edges. */
+.studio-plate {
+  background:
+    radial-gradient(120% 90% at 50% 18%, #ffffff 0%, #f1f1f4 52%, #e4e4e9 100%);
+}
+.studio-plate-warm {
+  background:
+    radial-gradient(120% 90% at 50% 18%, #fbfbf9 0%, #f0efeb 52%, #e3e2dc 100%);
+}
+.studio-img {
+  mix-blend-mode: multiply;
+  filter: contrast(1.04) saturate(1.02);
+}
+
 /* Wheel image - feathered radial mask: solid center -> very soft fade */
 .wheel-mask {
   -webkit-mask-image: radial-gradient(circle at center,
