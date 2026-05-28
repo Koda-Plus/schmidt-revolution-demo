@@ -107,6 +107,13 @@
   background:
     radial-gradient(120% 90% at 50% 18%, #fbfbf9 0%, #f0efeb 52%, #e3e2dc 100%);
 }
+/* Flatter plate for small square cards (catalog grid): a gentle top-down wash
+   instead of a tight radial hotspot, so the wheel sits on an even surface
+   rather than a glowing orb. */
+.studio-plate-flat {
+  background:
+    linear-gradient(180deg, #f5f5f7 0%, #ededf0 55%, #e2e2e6 100%);
+}
 .studio-img {
   mix-blend-mode: multiply;
   filter: contrast(1.04) saturate(1.02);
