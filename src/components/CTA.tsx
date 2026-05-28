@@ -45,8 +45,10 @@ export default function CTA() {
               alt="Schmidt Revolution TwentyOne"
               className="studio-img absolute inset-0 w-full h-full object-contain p-10 lg:p-14"
             />
-            <div className="absolute top-5 right-5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-medium bg-schmidt-ink text-white">
-              ab € 1.190 · in 21 Tagen
+            <div className="absolute top-5 right-5 text-right">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-schmidt-ink/55">ab</div>
+              <div className="font-display text-xl text-schmidt-ink leading-none mt-0.5">€ 1.190</div>
+              <div className="text-[10px] text-schmidt-ink/55 mt-1">in 21 Tagen</div>
             </div>
           </div>
         </motion.div>

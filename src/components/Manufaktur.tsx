@@ -44,10 +44,10 @@ export default function Manufaktur() {
                 alt="Schmidt Manufaktur - handgefertigte Felge"
                 className="studio-img absolute inset-0 w-full h-full object-contain p-12 lg:p-16"
               />
-              <div className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-schmidt-ink/90 text-white backdrop-blur">
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 text-[11px] font-medium text-schmidt-ink">
                 <span className="w-1.5 h-1.5 rounded-full bg-schmidt-yellow animate-pulse" /> Live · CNC #4
               </div>
-              <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-medium bg-schmidt-ink/90 text-schmidt-silver backdrop-blur">
+              <div className="absolute top-4 right-4 text-[10px] uppercase tracking-[0.2em] font-medium text-schmidt-ink/55">
                 Bad Segeberg
               </div>
             </div>

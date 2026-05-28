@@ -144,20 +144,20 @@ export default function Configurator() {
           {/* Spec chips around wheel */}
           {selectedWheel && (
             <>
-              <div className="absolute top-4 -left-2 sm:left-4 bg-schmidt-carbon/90 backdrop-blur border border-white/10 rounded-xl px-3 py-2">
-                <div className="text-[9px] uppercase tracking-widest text-schmidt-silver">Bauart</div>
-                <div className="text-xs text-white">{selectedWheel.construction}</div>
+              <div className="absolute top-1 -left-2 sm:left-1 z-20">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-schmidt-silver">Bauart</div>
+                <div className="text-sm text-white mt-0.5">{selectedWheel.construction}</div>
               </div>
               {size && (
-                <div className="absolute top-4 -right-2 sm:right-4 bg-schmidt-carbon/90 backdrop-blur border border-white/10 rounded-xl px-3 py-2">
-                  <div className="text-[9px] uppercase tracking-widest text-schmidt-silver">Größe</div>
-                  <div className="text-xs text-white">{size} · {width}</div>
+                <div className="absolute top-1 -right-2 sm:right-1 z-20 text-right">
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-schmidt-silver">Größe</div>
+                  <div className="text-sm text-white mt-0.5">{size} · {width}</div>
                 </div>
               )}
               {selectedFinish && (
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-schmidt-carbon/90 backdrop-blur border border-white/10 rounded-xl px-3 py-2 flex items-center gap-2">
-                  <span className="w-4 h-4 rounded-full" style={{ background: selectedFinish.swatch }} />
-                  <span className="text-xs text-white">{selectedFinish.name}</span>
+                <div className="absolute bottom-1 left-1 z-20 flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full" style={{ background: selectedFinish.swatch }} />
+                  <span className="text-sm text-white">{selectedFinish.name}</span>
                 </div>
               )}
             </>

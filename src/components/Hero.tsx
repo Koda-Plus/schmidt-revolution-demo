@@ -118,37 +118,32 @@ export default function Hero() {
               className="relative z-10 w-full h-full object-contain drop-shadow-[0_40px_80px_rgba(255,212,0,0.18)] wheel-mask"
             />
 
+            {/* Caption — editorial, no boxes */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-              className="absolute top-6 -left-2 sm:left-0 bg-schmidt-carbon/90 backdrop-blur border border-white/10 rounded-2xl px-4 py-3"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 1.0 }}
+              className="absolute left-1 bottom-1 z-20 flex items-stretch gap-3"
             >
-              <div className="text-[10px] uppercase tracking-widest text-schmidt-silver">Modell</div>
-              <div className="font-display text-white text-base">KYAN</div>
-              <div className="text-[11px] text-schmidt-yellow mt-0.5">Modern-Line · 1-teilig</div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 1.15 }}
-              className="absolute bottom-10 -right-2 sm:right-0 bg-schmidt-carbon/90 backdrop-blur border border-white/10 rounded-2xl px-4 py-3"
-            >
-              <div className="text-[10px] uppercase tracking-widest text-schmidt-silver">Finish</div>
-              <div className="flex items-center gap-2 mt-1">
-                <span className="w-4 h-4 rounded-full" style={{ background: 'linear-gradient(135deg,#34363b,#0e0f12)' }} />
-                <span className="text-white text-xs">Hyperblack</span>
+              <span className="w-px bg-schmidt-yellow/70" />
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.24em] text-schmidt-silver">Modern-Line · 1-teilig</div>
+                <div className="text-sm text-white mt-1.5 flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'linear-gradient(135deg,#34363b,#0e0f12)' }} />
+                  Hyperblack
+                </div>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.3 }}
-              className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-schmidt-yellow text-schmidt-ink rounded-full px-5 py-2 text-xs font-medium tracking-wide shadow-2xl shadow-schmidt-yellow/30 whitespace-nowrap"
+              transition={{ duration: 0.9, delay: 1.15 }}
+              className="absolute right-1 bottom-1 z-20 text-right"
             >
-              ab € 1.190 · gefertigt in 21 Tagen
+              <div className="text-[10px] uppercase tracking-[0.24em] text-schmidt-silver">ab</div>
+              <div className="font-display text-2xl text-white leading-none mt-1">€ 1.190</div>
+              <div className="text-[10px] text-schmidt-silver mt-1.5">gefertigt in 21 Tagen</div>
             </motion.div>
           </div>
         </div>

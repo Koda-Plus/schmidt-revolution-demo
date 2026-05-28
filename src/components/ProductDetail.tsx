@@ -41,12 +41,10 @@ export default function ProductDetail({ wheel }: { wheel: Wheel }) {
               {wheel.tag}
             </div>
           )}
-          <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-3">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest font-medium bg-schmidt-ink/90 text-schmidt-silver backdrop-blur">
-              Premium Detail View
-            </span>
-            <span className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-[10px] font-medium bg-schmidt-ink/90 text-white backdrop-blur">
-              <span className="w-3 h-3 rounded-full border border-white/20" style={{ background: finish.swatch }} />
+          <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3">
+            <span className="text-[10px] uppercase tracking-[0.22em] text-schmidt-ink/50">Premium Detail View</span>
+            <span className="flex items-center gap-2 text-xs text-schmidt-ink">
+              <span className="w-3 h-3 rounded-full border border-schmidt-ink/20" style={{ background: finish.swatch }} />
               {finish.name}
             </span>
           </div>
